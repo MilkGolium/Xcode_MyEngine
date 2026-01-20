@@ -1,13 +1,14 @@
 #include "MyEngine.h"
 
 int main(void) {
-    InitWindow(640, 480, "Hello");
-    InitEngineTime(); // 初始化计数器
+    InitWindow(640, 480, "Window name");
+    InitEngineTime();
     
     while (GameShouldQuit()) {
-        UpdateDeltaTime(); // 更新帧时间
+        UpdateDeltaTime();
         Rend();
     }
+    
     CleanUp();
     return 0;
 }

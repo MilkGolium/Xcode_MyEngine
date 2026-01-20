@@ -30,13 +30,13 @@
 static uint64_t last_now = 0;
 static float delta_time = 0.0f;
 
-// 在主循环开始前调用一次，初始化时间基准
+// 在主循环开始前调用一次，初始化时间基准。注意，不要在主循环里面使用，否则delta time会接近0
 void InitEngineTime(void) {
     last_now = SDL_GetTicksNS();
     delta_time = 0.0f;
 }
 
-// 每一帧在 PollEvent 之后调用
+// 每一帧的开始执行，以防刚进入主循环的时候delta time是0
 void UpdateDeltaTime(void) {
     uint64_t now = SDL_GetTicksNS();
     // 计算纳秒差值，并转换为秒 (1秒 = 1,000,000,000 纳秒)
