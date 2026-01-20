@@ -1,6 +1,6 @@
 # Soft2D 项目
 
-这是一个库，目前仅运行在macOS26.2的Xcode上，你可以尝试把它移植到Windows上，但是我没有Windows电脑，暂时做不到。
+这是一个库，目前仅运行在macOS 26.2的Xcode上，你可以尝试把它移植到Windows上，但是我没有Windows电脑，暂时做不到。
 
 平台层使用 SDL，仅作为窗口和 framebuffer 显示，不属于系统设计核心。
 
