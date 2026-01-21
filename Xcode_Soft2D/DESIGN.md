@@ -38,8 +38,7 @@
 
 **该引擎优先考虑模拟稳定性，而不是实时准确性。**
 
-Fix Your Timestep (By Glenn Fiedler)
-大致逻辑如下：
+Fix Your Timestep (By Glenn Fiedler) 的大致逻辑如下：
 ```c++
 double t = 0.0;
 double dt = 0.01; // 固定的逻辑步长（如 100Hz）
@@ -60,4 +59,19 @@ const double alpha = accumulator / dt;
 Render(alpha); // 使用 alpha 进行插值平滑画面
 ```
 
+## 必须循守的法则
+一旦破坏，整个系统就会失效！
+
+- 单一时间源+固定步进
+- 输入是数据，不是事件
+- 随机性必须是显式的
+- 渲染永远是状态的纯函数
+
+1. 固定Tick（60Hz or 120Hz），所有状态变化只能发生在 Tick 上。
+2. 数据式输入，键盘 / 鼠标 / AI 输入全部转成：`(tick, input_state)` , Replay 只喂输入，不“回放画面”.
+3. 显式随机，禁止 rand()、禁止隐式随机。所有随机都来自： `uint32_t deterministic_rng(seed, tick, entity_id);` .
+4. 渲染永远是状态的纯函数, `FrameBuffer = Render(WorldState)` ，Render 不能反向影响 WorldState，draw.c 永远无副作用。
+5. 禁止未定义行为，禁止依赖 UB 。明确写出“编译器版本”、“浮点模式”、“对齐规则”。
+
+**未来写一篇《Soft2D 的不确定性边界》**
 
