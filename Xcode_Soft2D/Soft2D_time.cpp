@@ -14,12 +14,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-//
-//  MyEngine_time.cpp
-//  Xcode_MyEngine
-//
-//  Created by Lunar on 2026/1/20.
-//
 
 /*
  这个方案确定可以吗？程序中每次获得的帧时间都是上一帧的帧时间啊，但是好像也只能这样，因为这一帧又没完成，你怎么知道这一帧会是多长时间呢

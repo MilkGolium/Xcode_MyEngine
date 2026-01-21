@@ -14,13 +14,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-//
-//  MyEngine.h
-//  Xcode_MyEngine
-//
-//  Created by Lunar on 2026/1/20.
-//
-
 #ifndef MyEngine_h
 #define MyEngine_h
 
